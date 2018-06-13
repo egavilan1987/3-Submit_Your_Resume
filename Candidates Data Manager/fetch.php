@@ -1,17 +1,17 @@
 <?php
 //fetch.php
-$connect = mysqli_connect("localhost", "root", "", "userRegister");
-$column = array("users.idUser", "users.userName", "users.firstName", "users.lastName");
+$connect = mysqli_connect("localhost", "root", "", "resumes");
+$column = array("candidates.id_candidate", "candidates.full_name", "candidates.id_number", "candidates.email");
 $query = "
- SELECT * FROM users";
+ SELECT * FROM candidates";
 $query .= " WHERE ";
 
 if(isset($_POST["search"]["value"]))
 {
- $query .= '(users.idUser LIKE "%'.$_POST["search"]["value"].'%" ';
- $query .= 'OR users.userName LIKE "%'.$_POST["search"]["value"].'%" ';
- $query .= 'OR users.firstName LIKE "%'.$_POST["search"]["value"].'%" ';
- $query .= 'OR users.lastName LIKE "%'.$_POST["search"]["value"].'%") ';
+ $query .= '(candidates.id_candidate LIKE "%'.$_POST["search"]["value"].'%" ';
+ $query .= 'OR candidates.full_name LIKE "%'.$_POST["search"]["value"].'%" ';
+ $query .= 'OR candidates.id_number LIKE "%'.$_POST["search"]["value"].'%" ';
+ $query .= 'OR candidates.email LIKE "%'.$_POST["search"]["value"].'%") ';
 }
 
 if(isset($_POST["order"]))
@@ -20,7 +20,7 @@ if(isset($_POST["order"]))
 }
 else
 {
- $query .= 'ORDER BY users.idUser DESC ';
+ $query .= 'ORDER BY candidates.id_candidate DESC ';
 }
 
 $query1 = '';
@@ -39,17 +39,17 @@ $data = array();
 while($row = mysqli_fetch_array($result))
 {
  $sub_array = array();
- $sub_array[] = $row["idUser"];
- $sub_array[] = $row["userName"];
- $sub_array[] = $row["firstName"];
- $sub_array[] = $row["lastName"];
- $sub_array[] = $row["lastName"];
+ $sub_array[] = $row["id_candidate"];
+ $sub_array[] = $row["full_name"];
+ $sub_array[] = $row["id_number"];
+ $sub_array[] = $row["email"];
+ $sub_array[] = $row["email"];
  $data[] = $sub_array;
 }
 
 function get_all_data($connect)
 {
- $query = "SELECT * FROM users";
+ $query = "SELECT * FROM candidates";
  $result = mysqli_query($connect, $query);
  return mysqli_num_rows($result);
 }

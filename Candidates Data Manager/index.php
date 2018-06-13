@@ -1,6 +1,6 @@
 <?php 
-$connect = mysqli_connect("localhost", "root", "", "userRegister");
-$query = "SELECT * FROM users ORDER BY idUser ASC";
+$connect = mysqli_connect("localhost", "root", "", "resumes");
+$query = "SELECT * FROM candidates ORDER BY id_candidates ASC";
 $result = mysqli_query($connect, $query);
 ?>
 <html>
