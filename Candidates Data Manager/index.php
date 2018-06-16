@@ -23,10 +23,9 @@ $result = mysqli_query($connect, $query);
     <table id="product_data" class="table table-bordered table-striped">
      <thead>
       <tr>
-       <th>Name</th>
        <th>ID</th>
-       <th>Email</th>
-       <th>Carrier</th>
+       <th>Name</th>
+       <th>Career</th>
        <th>Experience</th>
        <th>Spanish</th>
        <th>English</th>
@@ -34,8 +33,6 @@ $result = mysqli_query($connect, $query);
        <th>PDF</th>
        <th>View</th>
        <th>Update</th>
-       
-
       </tr>
      </thead>
     </table>
@@ -51,8 +48,8 @@ $(document).ready(function(){
  
  load_data();
 
- function load_data(is_category)
- {
+ function load_data(is_candidate)
+ { 
   var dataTable = $('#product_data').DataTable({
    "processing":true,
    "serverSide":true,
@@ -60,7 +57,7 @@ $(document).ready(function(){
    "ajax":{
     url:"fetch.php",
     type:"POST",
-    data:{is_category:is_category}
+    data:{is_candidate:is_candidate}
    },
    "columnDefs":[
     {

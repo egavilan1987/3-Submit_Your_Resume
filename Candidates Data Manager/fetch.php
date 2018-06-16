@@ -1,7 +1,7 @@
 <?php
 //fetch.php
 $connect = mysqli_connect("localhost", "root", "", "resumes");
-$column = array("candidates.id_candidate", "candidates.full_name", "candidates.id_number", "candidates.email");
+$column = array("candidates.id_candidate", "candidates.full_name", "candidates.career", "candidates.experience", "candidates.spanish_language", "candidates.english_language");
 $query = "
  SELECT * FROM candidates";
 $query .= " WHERE ";
@@ -10,8 +10,9 @@ if(isset($_POST["search"]["value"]))
 {
  $query .= '(candidates.id_candidate LIKE "%'.$_POST["search"]["value"].'%" ';
  $query .= 'OR candidates.full_name LIKE "%'.$_POST["search"]["value"].'%" ';
- $query .= 'OR candidates.id_number LIKE "%'.$_POST["search"]["value"].'%" ';
- $query .= 'OR candidates.email LIKE "%'.$_POST["search"]["value"].'%") ';
+ $query .= 'OR candidates.career LIKE "%'.$_POST["search"]["value"].'%" ';
+ $query .= 'OR candidates.experience LIKE "%'.$_POST["search"]["value"].'%") ';
+
 }
 
 if(isset($_POST["order"]))
@@ -41,9 +42,10 @@ while($row = mysqli_fetch_array($result))
  $sub_array = array();
  $sub_array[] = $row["id_candidate"];
  $sub_array[] = $row["full_name"];
- $sub_array[] = $row["id_number"];
- $sub_array[] = $row["email"];
- $sub_array[] = $row["email"];
+ $sub_array[] = $row["career"];
+ $sub_array[] = $row["experience"];
+ $sub_array[] = $row["spanish_language"];
+ $sub_array[] = $row["english_language"];
  $data[] = $sub_array;
 }
 
@@ -62,5 +64,6 @@ $output = array(
 );
 
 echo json_encode($output);
+
 
 ?>
