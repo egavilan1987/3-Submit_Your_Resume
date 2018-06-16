@@ -20,7 +20,7 @@ $result = mysqli_query($connect, $query);
    <br />
    
    <div class="table-responsive">
-    <table id="product_data" class="table table-bordered table-striped">
+    <table id="resumesData" class="table table-bordered table-striped">
      <thead>
       <tr>
        <th>ID</th>
@@ -29,10 +29,6 @@ $result = mysqli_query($connect, $query);
        <th>Experience</th>
        <th>Spanish</th>
        <th>English</th>
-       <th>Doc</th>
-       <th>PDF</th>
-       <th>View</th>
-       <th>Update</th>
       </tr>
      </thead>
     </table>
@@ -50,7 +46,7 @@ $(document).ready(function(){
 
  function load_data(is_candidate)
  { 
-  var dataTable = $('#product_data').DataTable({
+  var dataTable = $('#resumesData').DataTable({
    "processing":true,
    "serverSide":true,
    "order":[],
@@ -61,7 +57,7 @@ $(document).ready(function(){
    },
    "columnDefs":[
     {
-     "targets":[2],
+
      "orderable":false,
     },
    ],
