@@ -16,7 +16,6 @@
 		$finalPath
 			);
 
-    print_r($dataFile);
     if(move_uploaded_file($storagePath, $finalPath)){
 
 
@@ -48,33 +47,3 @@
 
 ?>
 
-
-
-
-<!--
-<?php 
-	require_once "../../classes/connection.php";
-	require_once "../../classes/Candidates.php";
-  
-	$obj= new Candidates();
-  	
-	$candidateArray=array(
-			$_POST['fullName'],
-			$_POST['dateBirth'],
-			$_POST['gender'],
-			$_POST['placeBirth'],
-			$_POST['idNumber'],
-            $_POST['address'],
-            $_POST['phone1'],
-            $_POST['phone2'],
-            $_POST['email'],
-            $_POST['career'],
-            $_POST['hoursAvailable'],
-            $_POST['experience'],
-            $_POST['es'],
-            $_POST['en']
-				);
-	echo $obj->insertCandidate($candidateArray);
-	
- ?>
--->

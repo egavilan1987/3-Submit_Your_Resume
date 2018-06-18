@@ -5,12 +5,6 @@
 	<?php require_once "menu.php"; ?>
 </head>
 
-<div class="jumbotron">
-  <h1 class="text-center">CARRERS</h1>
-  <p class="text-center">SUBMIT YOUR RESUME</p>
-</div>
-
-
 <body>
 		<div class="container">
 			<h3>¡Start building your career today!</h3>
@@ -158,36 +152,9 @@
 				<div class="modal-footer">
 						<button id="Save" type="button" class="btn btn-warning" data-dismiss="modal">Save Changes</button>
 				</div>
+		</div>
 
 
-<!--
-
-	
-  	<script type="text/javascript">
-		$(document).ready(function(){
-			$('#Save').click(function(){
-					Empties=validateEmptyForm('frmCandidate');
-		
-					if(Empties > 0){
-						alertify.alert("You must fill all of the fields!");
-						return false;					}
-				data=$('#frmCandidate').serialize();
-				$.ajax({
-					type:"POST",
-					data:data,
-					url:"../process/candidates/insertCandidate.php",
-					success:function(r){
-						alert(r);
-					if(r==1){
-						alertify.success("Information successfuly sent.");
-				}else{
-						alertify.error("Could not sent the information.");
-						}
-					}
-				});
-			});
-		});
-		-->
 	</script>  
     
     	<script type="text/javascript">
@@ -209,8 +176,8 @@
 					contentType: false,
 					processData: false,
 					success:function(r){
-						alert(r);
-						if(r == 1){
+						
+						if(r > 0){
 							//$('#frmCandidate')[0].reset();
 							alertify.success("Item successfully added");
 						}else{
